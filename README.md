@@ -81,15 +81,11 @@ Use the `dnd-nodrag` attribute inside of `dnd-draggable` elements to prevent the
 
 **Note:** This directive does not work in Internet Explorer 9.
 
-[Demo](http://marceljuenemann.github.io/angular-drag-and-drop-lists/demo/#/types)
-
 ## dnd-handle directive
 
 Use the `dnd-handle` directive within a `dnd-nodrag` element in order to allow dragging of that element after all. Therefore, by combining `dnd-nodrag` and `dnd-handle` you can allow `dnd-draggable` elements to only be dragged via specific *handle* elements.
 
 **Note:** Internet Explorer will show the handle element as drag image instead of the `dnd-draggable` element. You can work around this by styling the handle element differently when it is being dragged. Use the CSS selector `.dndDragging:not(.dndDraggingSource) [dnd-handle]` for that.
-
-[Demo](http://marceljuenemann.github.io/angular-drag-and-drop-lists/demo/#/types)
 
 ## Recommended CSS styles
 It is recommended that you apply the following CSS styles:
@@ -97,29 +93,3 @@ It is recommended that you apply the following CSS styles:
 * If your application is about moving elements by drag and drop, it is recommended that you hide the source element while dragging, i.e. setting `display: none` on the `.dndDraggingSource` class.
 * If your application allows to drop elements into empty lists, you need to ensure that empty lists never have a height or width of zero, e.g. by setting a `min-width`.
 * You should style the `.dndPlaceholder` class accordingly.
-
-**Note:** Previous versions of this directive required `postion: relative` on certain elements, but this is no longer required.
-
-## Why another drag & drop library?
-There are tons of other drag & drop libraries out there, but none of them met my three requirements:
-
-* **Angular:** If you use angular.js, you really don't want to throw a bunch of jQuery into your app. Instead you want to use libraries that were built the "angular way" and support **two-way data binding** to update your data model automatically.
-* **Nested lists:** If you want to build a **WYSIWYG editor** or have some fancy **tree structure**, the library has to support nested lists.
-* **HTML5 drag & drop:** Most drag & drop applications you'll find on the internet use pure JavaScript drag & drop. But with the arrival of HTML5 we can delegate most of the work to the browser. For example: If you want to show the user what they are currently dragging, you'll have to update the position of the element all the time and set it below the mouse pointer. In HTML5 the browser will do that for you! But you can not only save code lines, you can also offer a more **native user experience**: If you click on an element in a pure JavaScript drag & drop implementation, it will usually start the drag operation. But remember what happens when you click an icon on your desktop: The icon will be selected, not dragged! This is the native behaviour you can bring to your web application with HTML5.
-
-If this doesn't fit your requirements, check out one of the other awesome drag & drop libraries:
-
-* [angular-ui-tree](https://github.com/JimLiu/angular-ui-tree): Very similar to this library, but does not use the HTML5 API. Therefore you need to write some more markup to see what you are dragging and it will create another DOM node that you have to style. However, if you plan to support touch devices this is probably your best choice.
-* [angular-dragdrop](https://github.com/angular-dragdrop/angular-dragdrop): One of many libraries with the same name. This one uses the HTML5 API, but if you want to build (nested) sortable lists, you're on your own, because it does not calculate the correct element position for you.
-* [more...](https://www.google.de/search?q=angular+drag+and+drop)
-
-
-## License
-
-Copyright (c) 2014 [Marcel Juenemann](mailto:marcel@juenemann.cc)
-
-Copyright (c) 2014-2017 Google Inc.
-
-This is not an official Google product (experimental or otherwise), it is just code that happens to be owned by Google.
-
-[MIT License](https://raw.githubusercontent.com/marceljuenemann/angular-drag-and-drop-lists/master/LICENSE)
